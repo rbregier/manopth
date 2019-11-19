@@ -258,7 +258,7 @@ class ManoLayer(Module):
         # Reorder joints to match visualization utilities
         th_jtr = th_jtr[:, [0, 13, 14, 15, 16, 1, 2, 3, 17, 4, 5, 6, 18, 10, 11, 12, 19, 7, 8, 9, 20]]
 
-        if th_trans is None or bool(torch.norm(th_trans) == 0):
+        if th_trans is None:
             if self.center_idx is not None:
                 center_joint = th_jtr[:, self.center_idx].unsqueeze(1)
                 th_jtr = th_jtr - center_joint
